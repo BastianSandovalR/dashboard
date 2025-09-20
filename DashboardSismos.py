@@ -19,7 +19,7 @@ def load_data(uploaded_file):
     else:
         # intenta cargar archivo local "Superstore.xlsx"
         try:
-            df_local = pd.read_csv("C:/Users/basti/OneDrive/Escritorio/csv_estudio_datascience/SampleSuperstore.csv")
+            df_local = pd.read_csv("/SampleSuperstore.csv")
         except Exception as e:
             st.error("No se encontró 'Superstore.xlsx' en la carpeta. Sube el archivo con el uploader.")
             return None
@@ -116,3 +116,4 @@ st.dataframe(df_filtered.head(100))
 # botón para descargar datos filtrados como CSV
 csv = df_filtered.to_csv(index=False).encode('utf-8')
 st.download_button(label="Descargar datos filtrados (CSV)", data=csv, file_name='superstore_filtered.csv', mime='text/csv')
+
